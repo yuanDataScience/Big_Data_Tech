@@ -1,2 +1,2 @@
 # Big_Data_Tech
-Data manipulation and wrangling using Presto query, Spark sql, Mysql and Pandas, and convenient tools for big data query on AWS s3 using Athena, qubole and boto3
+Querying data from cloud platform is critical for big data analysis. In addition, data manipulation and wrangling is an important skill set in order to get data in appropriate formats for data analysis. This repo collects some of the routinely used functions and code that I used to query big data from AWS and format my dataset. Currently, the techniques in this repo include Presto query, Spark sql, Mysql and Pandas, and tools for querying AWS s3 using Athena, qubole and boto3
