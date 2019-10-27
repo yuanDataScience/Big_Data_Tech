@@ -1,0 +1,8 @@
+## To create a mysql table from the command line
+aws rds create-db-instance --db-name MysqlDB --engine MySQL --db-instance-identifier MySQLForLambdaTest \
+--backup-retention-period 3 --db-instance-class db.t2.micro --allocated-storage 5 --no-publicly-accessible \
+--master-username root --master-user-password pass --vpc-security-group-ids sg-XXXX \
+--db-subnet-group-name (from "subnet groups" option in RDS dashboard)
+
+## To get the endpoint from AWS cli usng --query options
+aws rds describe-db-instances --query 'DBInstances[?DBInstanceIdentifier==`mysqlforlambdatest`].[Endpoint.Address]
