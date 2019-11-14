@@ -1,0 +1,26 @@
+FROM python:3
+
+LABEL maintainer="Yuan Huang <yuahuang@celgene.com>" \
+      version="1.0"
+
+RUN mkdir -p /01_data && \
+    mkdir -p /02_code  
+
+COPY 02_code/requirements.txt /02_code/requirements.txt 
+
+RUN pip install awscli  
+RUN pip install -r /02_code/requirements.txt
+    
+USER root
+WORKDIR /02_code
+
+COPY 02_code/athena_query.py /02_code/athena_query.py
+COPY 02_code/athena_query.sh /02_code/athena_query.sh
+
+ENTRYPOINT ["athena_query.sh"]
+CMD []
+ENV PATH="/usr/bin:/02_code:${PATH}"
+ENV PYTHONPATH="/usr/local/lib/python3.7/site-packages"
+ENV AWS_ACCESS_KEY="your_access_key"
+ENV AWS_SECRET_KEY="your_secret_key"
+ENV AWS_REGION="your_region"
