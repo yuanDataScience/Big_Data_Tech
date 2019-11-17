@@ -1,0 +1,6 @@
+# start a SageMaker notebook from the boto3
+import boto3  
+client = boto3.client('sagemaker')
+response = client.start_notebook_instance(
+    NotebookInstanceName='<Notebook-Name-to-Restart>'
+)
